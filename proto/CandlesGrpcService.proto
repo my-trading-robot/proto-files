@@ -5,10 +5,9 @@ package candles_grpc;
 
 enum CandleGrpcType{
     Minute = 0;
-    Min5 = 1;
-    Hour = 2;
-    Day = 3;
-    Month = 4;
+    Hour = 1;
+    Day = 2;
+    Month = 3;
 }
 
 message CandleGrpcModel{
