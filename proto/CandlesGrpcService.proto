@@ -21,8 +21,8 @@ message CandleGrpcModel{
 
 message GetCandlesHistoryGrpcRequest {
     string InstrumentId = 1;
-    uint64 FromDateTime = 2;
-    uint64 ToDateTime = 3;
+    uint64 FromKey = 2;
+    uint64 ToKey = 3;
     CandleGrpcType CandleType = 4;
     bool IsBid = 5;
 }
