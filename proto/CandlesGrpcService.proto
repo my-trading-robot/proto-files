@@ -27,7 +27,16 @@ message GetCandlesHistoryGrpcRequest {
     bool IsBid = 5;
 }
 
+message GetMyAmountGrpcRequest {
+    string InstrumentId = 1;
+    uint64 HighestKey = 2;
+    uint64 MaxAmount = 3;
+    CandleGrpcType CandleType = 4;
+    bool IsBid = 5;
+}
 service CandlesGrpcService {
     rpc GetCandlesByInstrument(GetCandlesHistoryGrpcRequest) returns (stream CandleGrpcModel);    
+    rpc GetByAmount(GetMyAmountGrpcRequest) returns (stream CandleGrpcModel);   
+
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
