@@ -29,7 +29,7 @@ message GetCandlesHistoryGrpcRequest {
 
 message GetMyAmountGrpcRequest {
     string InstrumentId = 1;
-    uint64 HighestKey = 2;
+    uint64 HighestDateTime = 2;
     uint64 MaxAmount = 3;
     CandleGrpcType CandleType = 4;
     bool IsBid = 5;
