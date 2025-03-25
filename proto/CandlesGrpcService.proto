@@ -37,7 +37,7 @@ message GetMyAmountGrpcRequest {
 
 message GetAtrFilterCountGrpcRequest {
     string InstrumentId = 1;
-    CandleGrpcType CandleType = 1;
+    CandleGrpcType CandleType = 2;
 }
 
 message GetAtrFilterCountGrpcResponse {
