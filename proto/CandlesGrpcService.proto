@@ -34,9 +34,20 @@ message GetMyAmountGrpcRequest {
     CandleGrpcType CandleType = 4;
     bool IsBid = 5;
 }
+
+message GetAtrFilterCountGrpcRequest {}
+
+message GetAtrFilterCountGrpcResponse {
+    uint64 IgnoredAboveCount = 1;
+    uint64 IgnoreBelowCount = 2;
+    uint64 UnfilteredCount = 3;
+
+}
+
 service CandlesGrpcService {
     rpc GetCandlesByInstrument(GetCandlesHistoryGrpcRequest) returns (stream CandleGrpcModel);    
-    rpc GetByAmount(GetMyAmountGrpcRequest) returns (stream CandleGrpcModel);   
+    rpc GetByAmount(GetMyAmountGrpcRequest) returns (stream CandleGrpcModel);
+    rpc GetAtrFilterCount(GetAtrFilterCountGrpcRequest) returns (GetAtrFilterCountGrpcResponse);
 
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
