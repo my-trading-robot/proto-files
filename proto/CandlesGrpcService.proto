@@ -35,7 +35,9 @@ message GetMyAmountGrpcRequest {
     bool IsBid = 5;
 }
 
-message GetAtrFilterCountGrpcRequest {}
+message GetAtrFilterCountGrpcRequest {
+    string InstrumentId = 1;
+}
 
 message GetAtrFilterCountGrpcResponse {
     uint64 IgnoredAboveCount = 1;
