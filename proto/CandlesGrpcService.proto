@@ -44,7 +44,6 @@ message GetAtrFilterCountGrpcResponse {
     uint64 IgnoredAboveCount = 1;
     uint64 IgnoreBelowCount = 2;
     uint64 UnfilteredCount = 3;
-
 }
 
 service CandlesGrpcService {
