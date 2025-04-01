@@ -8,6 +8,7 @@ enum CandleGrpcType{
     Hour = 1;
     Day = 2;
     Month = 3;
+    Minute5 = 4;
 }
 
 message CandleGrpcModel{
