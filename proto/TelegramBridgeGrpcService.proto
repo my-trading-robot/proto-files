@@ -8,6 +8,6 @@ message SendMessageGrpcRequest{
 }
 
 service TelegramBridgeGrpcService {
-    rpc SendMessage(SendMessageGrpcRequest) returns (stream google.protobuf.Empty);    
+    rpc SendMessage(SendMessageGrpcRequest) returns (google.protobuf.Empty);    
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
