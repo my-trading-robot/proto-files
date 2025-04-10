@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+package telegram_bridge_grpc;
+
+message SendMessageGrpcRequest{
+    string Message = 1;
+}
+
+service TelegramBridgeGrpcService {
+    rpc SendMessage(SendMessageGrpcRequest) returns (stream google.protobuf.Empty);    
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
