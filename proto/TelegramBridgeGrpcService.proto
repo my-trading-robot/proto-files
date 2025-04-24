@@ -5,7 +5,7 @@ package telegram_bridge_grpc;
 
 message SendMessageGrpcRequest{
     string Message = 1;
-    bool Deduplicate = 2;
+    optional string DeduplicateKey = 2;
 }
 
 service TelegramBridgeGrpcService {
