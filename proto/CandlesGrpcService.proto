@@ -12,7 +12,7 @@ enum CandleGrpcType{
 }
 
 message CandleGrpcModel{
-    uint64 DateKey = 1;
+    int64 DateKey = 1;
     double Open = 2;
     double Close = 3;
     double High = 4;
@@ -47,10 +47,19 @@ message GetAtrFilterCountGrpcResponse {
     uint64 UnfilteredCount = 3;
 }
 
+
+message UpdateCandlesGrpcRequest {
+    string InstrumentId = 1;
+    int64 Date = 2;
+    int64 TotalDays = 3;
+}
+
 service CandlesGrpcService {
     rpc GetCandlesByInstrument(GetCandlesHistoryGrpcRequest) returns (stream CandleGrpcModel);    
     rpc GetByAmount(GetMyAmountGrpcRequest) returns (stream CandleGrpcModel);
     rpc GetAtrFilterCount(GetAtrFilterCountGrpcRequest) returns (GetAtrFilterCountGrpcResponse);
+
+    rpc LoadCandlesFromSource(UpdateCandlesGrpcRequest) returns (google.protobuf.Empty);
 
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
