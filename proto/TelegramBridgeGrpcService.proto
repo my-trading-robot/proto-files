@@ -4,8 +4,8 @@ import "google/protobuf/empty.proto";
 package telegram_bridge_grpc;
 
 message SendMessageGrpcRequest{
-    string Message = 1;
-    optional string DeduplicateKey = 2;
+    string message = 1;
+    optional string deduplicate_key = 2;
 }
 
 service TelegramBridgeGrpcService {
