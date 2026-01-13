@@ -4,55 +4,55 @@ import "google/protobuf/empty.proto";
 package candles_grpc;
 
 enum CandleGrpcType{
-    Minute = 0;
-    Hour = 1;
-    Day = 2;
-    Month = 3;
-    Minute5 = 4;
+    MINUTE = 0;
+    HOUR = 1;
+    DAY = 2;
+    MONTH = 3;
+    MINUTE5 = 4;
 }
 
 message CandleGrpcModel{
-    int64 DateKey = 1;
-    double Open = 2;
-    double Close = 3;
-    double High = 4;
-    double Low = 5;
-    double Volume = 6;
+    int64 date_key = 1;
+    double open = 2;
+    double close = 3;
+    double high = 4;
+    double low = 5;
+    double volume = 6;
 }
 
 message GetCandlesHistoryGrpcRequest {
-    string InstrumentId = 1;
-    uint64 FromKey = 2;
-    uint64 ToKey = 3;
-    CandleGrpcType CandleType = 4;
-    bool IsBid = 5;
-    optional uint64 Limit = 6;
+    string instrument_id = 1;
+    uint64 from_key = 2;
+    uint64 to_key = 3;
+    CandleGrpcType candle_type = 4;
+    bool is_bid = 5;
+    optional uint64 limit = 6;
 }
 
 message GetMyAmountGrpcRequest {
-    string InstrumentId = 1;
-    uint64 HighestKey = 2;
-    uint64 MaxAmount = 3;
-    CandleGrpcType CandleType = 4;
-    bool IsBid = 5;
+    string instrument_id = 1;
+    uint64 highest_key = 2;
+    uint64 max_amount = 3;
+    CandleGrpcType candle_type = 4;
+    bool is_bid = 5;
 }
 
 message GetAtrFilterCountGrpcRequest {
-    string InstrumentId = 1;
-    CandleGrpcType CandleType = 2;
+    string instrument_id = 1;
+    CandleGrpcType candle_type = 2;
 }
 
 message GetAtrFilterCountGrpcResponse {
-    uint64 IgnoredAboveCount = 1;
-    uint64 IgnoreBelowCount = 2;
-    uint64 UnfilteredCount = 3;
+    uint64 ignored_above_count = 1;
+    uint64 ignore_below_count = 2;
+    uint64 unfiltered_count = 3;
 }
 
 
 message UpdateCandlesGrpcRequest {
-    string InstrumentId = 1;
-    int64 Date = 2;
-    int64 TotalDays = 3;
+    string instrument_id = 1;
+    int64 date_from = 2;
+    int64 total_days = 3;
 }
 
 service CandlesGrpcService {
