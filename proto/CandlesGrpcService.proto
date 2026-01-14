@@ -43,11 +43,18 @@ message UpdateCandlesGrpcRequest {
     int64 total_days = 3;
 }
 
+
+message UpdateCacheFromDbGrpcRequest{
+    string instrument_id = 1;
+}
+
 service CandlesGrpcService {
     rpc GetCandlesByInstrument(GetCandlesHistoryGrpcRequest) returns (stream CandleGrpcModel);    
     rpc GetByAmount(GetMyAmountGrpcRequest) returns (stream CandleGrpcModel);
 
     rpc LoadCandlesFromSource(UpdateCandlesGrpcRequest) returns (google.protobuf.Empty);
+
+    rpc UpdateCacheFromDb(UpdateCacheFromDbGrpcRequest) returns (google.protobuf.Empty);
 
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
