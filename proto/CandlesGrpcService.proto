@@ -40,7 +40,7 @@ message GetMyAmountGrpcRequest {
 message UpdateCandlesGrpcRequest {
     string instrument_id = 1;
     int64 date_from = 2;
-    int64 total_days = 3;
+    int64 date_to = 3;
 }
 
 
